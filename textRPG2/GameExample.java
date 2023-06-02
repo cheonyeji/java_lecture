@@ -3,12 +3,14 @@ package textRPG2;
 import java.util.Scanner;
 
 public class GameExample {
+	// Creature 자료형의 배열을 전달받아, 내부의 printInfo 함수를 실행하는 메서드
 	public static void printPartyInfo(Creature[] party) {
 		for (int i = 0; i < party.length; i++) {
 			party[i].printInfo();
 		}
 	}
 
+	// Creature 자료형의 배열을 전달받아, 모든 요소의 hp의 총합을 리턴하는 메서드
 	public static int getPartyTotalHp(Creature[] party) {
 		int sum = 0;
 		for (int i = 0; i < party.length; i++) {
@@ -16,7 +18,8 @@ public class GameExample {
 		}
 		return sum;
 	}
-
+	
+	// 유저로부터 w,m,t 중 하나를 입력받아 전사, 마법사, 도적 객체를 생성하는 메서드
 	public static void setPlayerParty(Player[] party) {
 		Scanner s = new Scanner(System.in);
 		for (int i = 0; i < party.length; i++) {
@@ -35,13 +38,15 @@ public class GameExample {
 		}
 
 	}
-
+	
+	// 몬스터 배열을 전달받아, 내부에 각각 몬스터 객체를 생성해주는 메서드
 	public static void setMonsterParty(Monster[] party) {
 		for (int i = 0; i < party.length; i++) {
 			party[i] = new Monster();
 		}
 	}
 
+	// 플레이어 1번, 몬스터 1번 때리는 한 라운드 진행하는 메서드
 	public static int runOneRound(Player2ndLevel[] attackParty, Monster[] defenseParty) {
 		// 플레이어 전투 시작
 		int randomPIdx = (int) (Math.random() * attackParty.length);
@@ -49,7 +54,8 @@ public class GameExample {
 		while (attackParty[randomPIdx].hp == 0) {
 			randomPIdx = (int) (Math.random() * attackParty.length);
 		}
-
+		
+		// 때릴 몬스터 인덱스 선택
 		int target = 0;
 		while (defenseParty[target].hp == 0) {
 			target++;
@@ -57,7 +63,8 @@ public class GameExample {
 			if (target == defenseParty.length)
 				return 1;
 		}
-
+		
+		// 스킬 사용 가능 상태 체크
 		if (attackParty[randomPIdx].mp >= (attackParty[randomPIdx]).skillMp) {
 			attackParty[randomPIdx].skill(defenseParty[target]);
 		} else {
@@ -101,6 +108,7 @@ public class GameExample {
 		Monster[] monsters = new Monster[randomMonsterNum];
 
 		setMonsterParty(monsters); // 몬스터 객체를 생성자를 통해 생성
+		
 		System.out.println("---- [Monster Party Info] ----");
 		printPartyInfo(monsters);
 

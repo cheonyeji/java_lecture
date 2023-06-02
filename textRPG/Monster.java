@@ -32,10 +32,18 @@ public class Monster extends Creature {
 			typeHit = true;
 		}
 		
-		if (target.hp >= this.str) {
-			target.hp = typeHit ? target.hp - (int)(this.str * 1.5) : target.hp - this.str;
+		if(typeHit) {
+			if(target.hp >= (int)(this.str * 1.5)) {
+				target.hp -= (int)(this.str * 1.5);
+			} else {
+				target.hp = 0;
+			}
 		} else {
-			target.hp = 0;
+			if (target.hp >= this.str) {
+				target.hp -= this.str;
+			} else {
+				target.hp = 0;
+			}
 		}
 		
 		String hitInfo = typeHit ? "[Type Hit!] " : "";

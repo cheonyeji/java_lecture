@@ -17,8 +17,8 @@ public class GameExample1 {
 		for(int i=0; i<party.length; i++) {
 			party[i].attack(m1);
 		}
+		
 		System.out.println("-------- Monster Attack --------");
-
 		m1.attack(party[(int)(Math.random() * party.length)]);
 		
 		// 정보 출력

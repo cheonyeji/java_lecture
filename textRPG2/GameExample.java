@@ -89,22 +89,23 @@ public class GameExample {
 		int playerNum = 3;
 		Player2ndLevel[] players = new Player2ndLevel[playerNum];
 
-		setPlayerParty(players);
+		setPlayerParty(players); // 유저로부터 w,m,t를 입력받아 객체를 생성하는 함수
+		
 		System.out.println("---- [Player Party Info] ----");
 		printPartyInfo(players);
 
 		int randomMonsterNum = (int) (Math.random() * 5) + 1;
-
 		Monster[] monsters = new Monster[randomMonsterNum];
 
-		setMonsterParty(monsters);
+		setMonsterParty(monsters); // 몬스터 객체를 생성자를 통해 생성
 		System.out.println("---- [Monster Party Info] ----");
 		printPartyInfo(monsters);
 
 		int result = 0;
 		while (getPartyTotalHp(players) > 0 && getPartyTotalHp(monsters) > 0) {
 			System.out.println("---------Round Start---------");
-			result = runOneRound(players, monsters);
+			
+			result = runOneRound(players, monsters); // 플레이어 1번, 몬스터 1번 공격하는 라운드
 
 			System.out.println("---- [Player Party Info] ----");
 			printPartyInfo(players);

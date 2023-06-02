@@ -22,4 +22,11 @@ public class Warrior extends Player2ndLevel {
 	
 	}
 
+	@Override
+	public String toString() {
+		return "Warrior [skillMp=" + skillMp + ", name=" + name + ", mp=" + mp + ", str=" + str + ", hp=" + hp
+				+ ", type=" + type + "]";
+	}
+
+	
 }

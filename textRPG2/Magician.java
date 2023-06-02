@@ -21,4 +21,12 @@ public class Magician extends Player2ndLevel {
 
 	}
 
+	@Override
+	public String toString() {
+		return "Magician [skillMp=" + skillMp + ", name=" + name + ", mp=" + mp + ", str=" + str + ", hp=" + hp
+				+ ", type=" + type + "]";
+	}
+	
+	
+
 }

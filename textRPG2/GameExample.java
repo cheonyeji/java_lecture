@@ -22,12 +22,15 @@ public class GameExample {
 		for (int i = 0; i < party.length; i++) {
 			System.out.print("[" + (i + 1) + "/" + party.length + "] 전사(w), 마법사(m), 도적(t) 중 선택하세요 : ");
 			String playerSelect = s.nextLine();
-			if (playerSelect == "w") {
+			if (playerSelect.equals("w")) {
 				party[i] = new Warrior("player" + i);
-			} else if (playerSelect == "m") {
+			} else if (playerSelect.equals("m")) {
 				party[i] = new Magician("player" + i);
-			} else {
+			} else if (playerSelect.equals("t")) {
 				party[i] = new Thief("player" + i);
+			} else {
+				System.out.println("w, m, t 중 하나를 입력해주세요!");
+				i--;
 			}
 		}
 

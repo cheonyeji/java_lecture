@@ -28,4 +28,23 @@ public abstract class Creature implements Attackable, TypeAttackable{
 		}
 		return typeHit;
 	}
+	
+	// typeHit 발생했을 때 str의 1.5배만큼 체력 감소
+	void decreaseHpTypeHit(Creature target) {
+		if(target.hp >= (int)(this.str * 1.5)) {
+			target.hp -= (int)(this.str * 1.5);
+		} else {
+			target.hp = 0;
+		}
+	}
+	
+	// typeHit 발생했을 때 str만큼 체력 감소
+	void decreaseHp(Creature target) {
+		if (target.hp >= this.str) {
+			target.hp -= this.str;
+		} else {
+			target.hp = 0;
+		}
+	}
+
 }
